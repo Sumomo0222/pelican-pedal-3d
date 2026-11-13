@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#071b2c" />
+  <meta name="description" content="Pelican Pedal — 交互式 3D 鹈鹕骑自行车场景" />
+  <title>PELICAN / PEDAL</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css" />
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.161.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <div id="scene" aria-label="一只鹈鹕骑自行车穿过海滨公路的 3D 互动场景"></div>
+  <div class="vignette"></div>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Pelican Pedal 首页"><span class="brand-mark">PP</span><span>PELICAN<br><em>PEDAL</em></span></a>
+    <div class="route"><span class="route-dot"></span> COASTAL ROUTE 07 <span class="slash">/</span> 24.6°C</div>
+    <button class="sound-toggle" id="soundToggle" aria-pressed="false"><span class="sound-icon">◖</span> 声景 <kbd>S</kbd></button>
+  </header>
+
+  <main class="hud">
+    <section class="intro" aria-label="场景介绍">
+      <p class="eyebrow">A GENTLE RIDE, 06:42 A.M.</p>
+      <h1>风起，<br><i>鹈鹕</i>出发。</h1>
+      <p class="lede">沿着被潮汐擦亮的海岸线，<br>把清晨骑成一段缓慢的电影。</p>
+      <button id="rideButton" class="ride-button"><span class="play">▶</span><span>开始巡航</span><small>SPACE</small></button>
+    </section>
+
+    <aside class="telemetry" aria-label="骑行数据">
+      <div class="meter"><span>当前速度</span><b id="speedValue">18.4</b><small>KM/H</small></div>
+      <div class="meter"><span>潮汐节奏</span><b id="tideValue">LOW</b><small>06:42</small></div>
+      <div class="meter"><span>剩余路线</span><b id="routeValue">08.2</b><small>KM</small></div>
+    </aside>
+  </main>
+
+  <footer class="bottombar">
+    <div class="instruction"><span class="mouse">↕</span> 拖拽以环视 <span class="sep">·</span> 滚轮以靠近</div>
+    <div class="compass"><span>N</span><i></i><span>E</span></div>
+    <div class="credit">STILLWATER STUDIO <span>—</span> 2026</div>
+  </footer>
+
+  <div id="loading" class="loading"><div class="loading-pelican">◖</div><span>正在唤醒海风</span><div class="loading-line"><i></i></div></div>
+  <div class="toast" id="toast" role="status"></div>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
